@@ -69,19 +69,19 @@ public class PlateForm : MonoBehaviour
             }
         } 
 
-        if(Mathf.Abs(Mathf.Pow(player.position.x - this.transform.position.x,2)) * Mathf.Abs(Mathf.Pow(player.position.x - this.transform.position.x, 2)) <= Mathf.Pow(5,2) && !alreadyCreate)
+        if(Mathf.Abs(Mathf.Pow(player.position.x - this.transform.position.x,2)) * Mathf.Abs(Mathf.Pow(player.position.x - this.transform.position.x, 2)) <= Mathf.Pow(10,2) && !alreadyCreate)
         {
             StartCoroutine(CreatePlateform());
             alreadyCreate = true;
         }
     }
-
-    public IEnumerator CreatePlateform()
-    {
-        yield return new WaitForSeconds(0.5f);
-        dist = new Vector2(transform.position.x + Random.Range(minDistX, maxDistX), initialPosition.y + Random.Range(minDistY, maxDistY));
-        Instantiate(plateform, new Vector3(dist.x, dist.y, 0), Quaternion.identity);
-    }
+   
+   public IEnumerator CreatePlateform()
+   {
+       yield return new WaitForSeconds(0.5f);
+       dist = new Vector2(transform.position.x + Random.Range(minDistX, maxDistX), initialPosition.y + Random.Range(minDistY, maxDistY));
+       Instantiate(plateform, new Vector3(dist.x, dist.y, 0), Quaternion.identity);
+   }
 
     public void Animated()
     {
